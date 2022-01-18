@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "-o",
+                "${workspaceFolder}/rectarea.exe",
+                "${workspaceFolder}/rectangle_perimeter.c"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "${workspaceFolder}/rectarea.exe",
+            "args": [
+                "2",
+                "6"
+            ]
+        },
+        {
+            "label": "build&test",
+            "type": "shell",
+            "dependsOn": [
+                "build",
+                "test"
+            ],
+            "dependsOrder": "sequence"
+        }
+    ]
+}

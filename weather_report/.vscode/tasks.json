@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "-o",
+                "${workspaceFolder}/weather_report.exe",
+                "${workspaceFolder}/weather_report.c"
+            ]
+        },
+        {
+            "label": "run",
+            "type": "process",
+            "command": "${workspaceFolder}/weather_report.exe"
+        },
+        {
+            "label": "build & run",
+            "type": "shell",
+            "dependsOn": [
+                "build",
+                "run"
+            ],
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
